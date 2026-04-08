@@ -100,10 +100,16 @@ def insert_tweet(connection,tweet):
         })
     if res.first() is not None:
         return
+    # SELECT above inside an "implicit transaction"
+    # but for older/original version of sqlalchemy:
+    # it automatically end the tx
+    # but for newer version: the tx not ended automatically
+    #
 
     # insert tweet within a transaction;
     # this ensures that a tweet does not get "partially" loaded
     with connection.begin() as trans:
+
 
         ########################################
         # insert into the users table
@@ -115,12 +121,20 @@ def insert_tweet(connection,tweet):
 
         # create/update the user
         sql = sqlalchemy.sql.text('''
+        INSERT INTO users 
+            (id_users, created_at, ...)
+            VALUES
+            (1, '2022-01-01 12:12:12', ...)
             ''')
+        res = connection.execute(sql,{
+            'id_users': tweet['user']['id'],
+            'created_at': tweet['created_at'],
+            ...
+            })
 
         ########################################
         # insert into the tweets table
         ########################################
-
         try:
             geo_coords = tweet['geo']['coordinates']
             geo_coords = str(tweet['geo']['coordinates'][0]) + ' ' + str(tweet['geo']['coordinates'][1])

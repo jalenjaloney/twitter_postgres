@@ -6,6 +6,9 @@ BEGIN;
 -- data tables
 --------------------------------------------------------------------------------    
 
+-- denormalized == json
+-- json vs jsonb
+
 CREATE TABLE tweets_jsonb (
     data JSONB
 );
