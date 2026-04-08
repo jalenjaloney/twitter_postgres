@@ -1,6 +1,6 @@
 # Twitter in Postgres
-[![](https://github.com/mikeizbicki/twitter_postgres/workflows/tests_denormalized/badge.svg)](https://github.com/mikeizbicki/twitter_postgres/actions?query=workflow%3Atests)
-[![](https://github.com/mikeizbicki/twitter_postgres/workflows/tests_normalized/badge.svg)](https://github.com/mikeizbicki/twitter_postgres/actions?query=workflow%3Atests)
+[![](https://github.com/jalenjaloney/twitter_postgres/workflows/tests_denormalized/badge.svg)](https://github.com/jalenjaloney/twitter_postgres/actions?query=workflow%3Atests)
+[![](https://github.com/jalenjaloney/twitter_postgres/workflows/tests_normalized/badge.svg)](https://github.com/jalenjaloney/twitter_postgres/actions?query=workflow%3Atests)
 
 You will repeat the Twitter/MapReduce assignment using Postgres.
 Because this assignment will involve many new programming concepts,
@@ -55,7 +55,7 @@ In this first assignment, we will focus on:
 > As you debug your insert code, you may need to delete your database.
 > Calling
 > ```
-> $ docker-compose down
+> $ docker compose down
 > ```
 > is not enough, since the database is persisted to a volume.
 > To delete the database,
